@@ -87,7 +87,11 @@ suite('Unit Tests', function(){
   suite('Function convertHandler.spellOutUnit(unit)', function() {
 
     test('For Each Valid Unit Inputs', function(done) {
-      //see above example for hint
+      let input = ['gal','l','mi','km','lbs','kg'];
+      let expected = ['gallons','liters','miles','kilometers','pounds','kilograms'];
+      input.forEach((unit, index) => {
+        assert.equal(convertHandler.spellOutUnit(unit), expected[index]);
+      });
       done();
     });
 
