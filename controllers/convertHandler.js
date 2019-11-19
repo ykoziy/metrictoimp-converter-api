@@ -32,9 +32,12 @@ function ConvertHandler() {
   };
 
   this.getUnit = function(input) {
-    var result;
-
-    return result;
+    let result;
+    const validUnits = ['gal','l','mi','km','lbs','kg','GAL','L','MI','KM','LBS','KG'];
+    let letterRegex = /[a-z]/i;
+    let unitIndex = letterRegex.exec(input).index;
+    result = input.substring(unitIndex);
+    return validUnits.includes(result)? result : 'Invalid Unit';
   };
 
   this.getReturnUnit = function(initUnit) {
